@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "LentGame";
+}
+
+<html>
+<head>
+    <title>User Greetings</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="@Url.Content("~/Scripts/Style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <br />
+    <!--Sekcja wyświetlająca informacje wypożyczenia-->
+    <div class="jumbotron">
+        <ul>
+            <li>
+                <h3>Klient: @ViewBag.clientName</h3>
+            </li>
+            <li>
+                <h3>O numerze telefonu: @ViewBag.clientPhone</h3>
+            </li>
+            <li>
+                <h3>Wypożyczył grę: @ViewBag.clientGame </h3>
+            </li>
+        </ul>
+    </div>
+    <h2>Dziękujemy za wypożyczenie gry!</h2>
+    <hr />
+</body>
+</html>

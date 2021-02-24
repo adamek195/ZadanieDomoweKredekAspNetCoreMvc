@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<!-- Wyświetlnie informacji o wypożyczalni-->
+<div class="jumbotron float-left" style="background-color:#dc7a34;">
+    <h1>Kontakt:</h1>
+    <ul>
+        <li>
+            <h3> Wypożyczalnia gier: @TempData["Name"]</h3>
+        </li>
+        <li>
+            <h3> Ulica: @TempData["Street"]</h3>
+        </li>
+        <li>
+            <h3> Numer telefonu: @TempData["PhoneNumber"] </h3>
+        </li>
+    </ul>
+</div>

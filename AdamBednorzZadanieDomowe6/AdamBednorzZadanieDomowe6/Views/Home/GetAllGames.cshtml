@@ -1,0 +1,18 @@
+﻿@model List<AdamBednorzZadanieDomowe6.Models.GameViewModel>
+
+<h1>Wszystkie Gry</h1>
+
+<!--Zostana wyświetlone wszystkie kafelki z grami-->
+@foreach (var game in Model)
+{
+<div class="col-sm-4 col-lg-4 col-md-4 float-left">
+    <div class="img-thumbnail">
+        <img src="@Url.Content(game.PhotoPath)" alt="@game.Name" />
+        <div class="figure-caption">
+            <h4>Gra: @game.Name</h4>
+            <h5>Producent: @game.Producer</h5>
+        </div>
+    </div>
+</div>
+}
+<div style="clear:both;"></div>

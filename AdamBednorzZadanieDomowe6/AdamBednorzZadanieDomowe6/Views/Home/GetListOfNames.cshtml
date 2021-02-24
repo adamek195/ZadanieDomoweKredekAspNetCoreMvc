@@ -1,0 +1,13 @@
+﻿@model List<string>
+
+<h1>Informacje o grach</h1>
+
+<!-- linki z grami gdzie można zobaczyć ceny-->
+<ul>
+    @foreach (var gameName in Model)
+    {
+    <li>
+        <h2> @Html.ActionLink(gameName, "GetGameByName", "Home", new { selectedGame = gameName }, null)</h2>
+    </li>
+    }
+</ul>
