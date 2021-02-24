@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdamBednorzZadanieDomowe6.Models;
+using AdamBednorzZadanieDomowe6.Repositories;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
@@ -14,7 +15,8 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// <summary>
         /// Gry do wyświetlenia 
         /// </summary>
-        List<GameViewModel> allGames;
+        GamesRepository gamesRepository = new GamesRepository();
+        List<GameViewModel>  allGames;
 
         public HomeController()
         {
@@ -36,7 +38,7 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         //logika strony do wyświetlenia gier
         public IActionResult GetAllGames()
         {
-            return View(this.allGames);
+            return View(this.gamesRepository.GetGames());
         }
 
         //logika strony do wyświetlania informacji o grach

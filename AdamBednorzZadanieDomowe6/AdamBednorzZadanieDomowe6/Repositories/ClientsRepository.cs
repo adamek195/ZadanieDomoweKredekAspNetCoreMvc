@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace AdamBednorzZadanieDomowe6.Repositories
 {
-    public class ClientRepository
+    /// <summary>
+    /// Klasa definiująca metody związane z komunikacją z bazą danych dla tabeli Clients
+    /// </summary>
+    public class ClientsRepository
     {
     }
 }
