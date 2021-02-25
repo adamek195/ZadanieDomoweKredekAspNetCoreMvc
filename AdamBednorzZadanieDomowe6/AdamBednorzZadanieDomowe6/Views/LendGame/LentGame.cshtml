@@ -12,19 +12,10 @@
     <br />
     <!--Sekcja wyświetlająca informacje wypożyczenia-->
     <div class="jumbotron">
-        <ul>
-            <li>
-                <h3>Klient: @ViewBag.clientName</h3>
-            </li>
-            <li>
-                <h3>O numerze telefonu: @ViewBag.clientPhone</h3>
-            </li>
-            <li>
-                <h3>Wypożyczył grę: @ViewBag.clientGame </h3>
-            </li>
-        </ul>
+        <h2>Klient: @ViewBag.clientName </h2> <br />
+        <h2>Wypożyczona gra: @ViewBag.clientGame</h2> <br />
+        <h2>@ViewBag.clientOrder</h2>
     </div>
-    <h2>Dziękujemy za wypożyczenie gry!</h2>
     <hr />
 </body>
 </html>

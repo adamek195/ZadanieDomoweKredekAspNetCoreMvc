@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdamBednorzZadanieDomowe6.Repositories;
+using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,15 @@ namespace AdamBednorzZadanieDomowe6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            // wstrzykujemy zaleznosc pomiedzy GameRepository i IGameRepository, wszedzie gdzie bedzie
+            //GamesRepository mozemy dodawac IGamesRepository
+            services.AddTransient<IGamesRepository, GamesRepository>();
+            // wstrzykujemy zaleznosc pomiedzy OrdersRepository i IOrdersRepository, wszedzie gdzie bedzie
+            //OrdersRepository mozemy dodawac IOrdersRepository
+            services.AddTransient<IOrdersRepository, OrdersRepository>();
+            // wstrzykujemy zaleznosc pomiedzy ClientsRepository i IClientsRepository, wszedzie gdzie bedzie
+            //ClientsRepository mozemy dodawac IClientsRepository
+            services.AddTransient<IClientsRepository, ClientsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdamBednorzZadanieDomowe6.Models;
 using AdamBednorzZadanieDomowe6.Repositories;
+using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
@@ -15,11 +16,12 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// <summary>
         /// Gry do wyświetlenia 
         /// </summary>
-        GamesRepository gamesRepository;
+        private IGamesRepository _gamesRepository;
 
-        public HomeController()
+        
+        public HomeController(IGamesRepository gamesRepository)
         {
-            gamesRepository = new GamesRepository();
+            _gamesRepository = gamesRepository;
         }
 
         //logika główengo menu
@@ -31,7 +33,7 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         //logika strony do wyświetlenia gier
         public IActionResult GetAllGames()
         {
-            return View(this.gamesRepository.GetGames());
+            return View(this._gamesRepository.GetGames());
         }
 
         //logika strony do wyświetlania informacji o grach
@@ -43,47 +45,13 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         //logika strony z opisami gier
         public IActionResult GetListOfNames()
         {
-            return View(this.gamesRepository.GetGamesNames());
+            return View(this._gamesRepository.GetGamesNames());
         }
 
         //logika strony, ktora wybiera nam konkretny model gry
         public IActionResult GetGameByName(string selectedGame)
         {
-            return View((this.gamesRepository.GetGameByName(selectedGame)));
-        }
-
-        // Strona do wypozyczania przed kliknieciem wypozyczenia
-        [HttpGet]
-        public IActionResult LendGame()
-        {
-            return View();
-        }
-
-        //strona wyswietlajaca sie po wypozyczeniu
-        [HttpPost]
-        public IActionResult LendGame(ClientViewModel clientData)
-        {
-            string fullName = clientData.FirstName + " " + clientData.LastName;
-            ViewBag.ClientName = fullName;
-            ViewBag.ClientPhone = clientData.PhoneNumber;
-            ViewBag.ClientGame = clientData.Game;
-            return View("LentGame");
-        }
-
-        //strona wyswietlajaca się przed przeslaniem opini
-        [HttpGet]
-        public IActionResult SendOpinion()
-        {
-            return View();
-        }
-
-        //strona wyswietlajaca sie po przeslaniu opinii
-        [HttpPost]
-        public IActionResult SendOpinion(ContactFormViewModel userOpinion)
-        {
-            ViewBag.UserName = userOpinion.FirstName + " " + userOpinion.LastName;
-            ViewBag.UserOpinion = userOpinion.Description;
-            return View("SentOpinion");
+            return View((this._gamesRepository.GetGameByName(selectedGame)));
         }
 
         //wyswietlanie informacji o firmie
