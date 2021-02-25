@@ -19,5 +19,7 @@ namespace AdamBednorzZadanieDomowe6.Models.Entities
         public decimal Price { get; set; }
         [Required]
         public string PhotoPath { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

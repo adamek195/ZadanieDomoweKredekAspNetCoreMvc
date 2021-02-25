@@ -1,11 +1,11 @@
-﻿@model ContactFormViewModel
-<!--Formularz kontaktowy-->
-@using (Html.BeginForm("SendOpinion", "Home", FormMethod.Post))
+﻿@model ClientViewModel
+<!--Formularz do wypożyczenia gry-->
+@using (Html.BeginForm("LendGame", "LendGame", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ContactForm</h4>
+        <h4>Wypożycz grę</h4>
         <hr />
         <!--Imię-->
         <div class="form-group">
@@ -21,11 +21,18 @@
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
-        <!--Opis-->
+        <!--Numer telefonu-->
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <!--Gra do wypożyczenia-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 

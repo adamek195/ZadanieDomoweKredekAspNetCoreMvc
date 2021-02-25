@@ -17,6 +17,10 @@ namespace AdamBednorzZadanieDomowe6.Models.Entities
         [MaxLength(64)]
         public string LastName { get; set; }
         [Required]
+        public string Password { get; set; }
+        [Required]
         public int PhoneNumber { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

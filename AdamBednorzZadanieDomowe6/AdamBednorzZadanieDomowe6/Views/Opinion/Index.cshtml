@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Wypożyczalnia gier komputerowych";
+}
+
+<div class="jumbotron" style="background-color:#dc7a34;">
+    <h1>Prześlij opinię!</h1>
+    <ul class="float-left">
+        <li>
+            <h3> @Html.ActionLink("Prześlij opinię", "SendOpinion", "Opinion")</h3>
+        </li>
+        <li>
+            <h3> @Html.ActionLink("Kontakt", "Contact", "Home")</h3>
+        </li>
+    </ul>
+    <div class="float-left col-md-4">
+        <img src="~/images/optimus.jpg" alt="Optimus" />
+    </div>
+    <div style="clear:both;"></div>
+</div>

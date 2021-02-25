@@ -16,18 +16,10 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// Gry do wyświetlenia 
         /// </summary>
         GamesRepository gamesRepository;
-        List<GameViewModel>  allGames;
 
         public HomeController()
         {
             gamesRepository = new GamesRepository();
-            this.allGames = new List<GameViewModel>();
-            allGames.Add(new GameViewModel("Fifa", "EA Sports", 50, "~/images/fifa.png"));
-            allGames.Add(new GameViewModel("Gta", "Rockstar Games", 30, "~/images/gta.png"));
-            allGames.Add(new GameViewModel("Mass Effect", "BioWare", 35, "~/images/masseffect.png"));
-            allGames.Add(new GameViewModel("NBA", "Visual Concepts", 50, "~/images/nba.png"));
-            allGames.Add(new GameViewModel("Sims", "Maxis", 25, "~/images/sims.png"));
-            allGames.Add(new GameViewModel("Star Wars", "Lucas Arts", 30, "~/images/starwars.png"));
         }
 
         //logika główengo menu
