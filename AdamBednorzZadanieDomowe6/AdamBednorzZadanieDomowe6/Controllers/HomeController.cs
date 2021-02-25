@@ -27,17 +27,42 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         //logika główengo menu
         public IActionResult Index()
         {
+            return View(this._gamesRepository.GetGames());
+        }
+  
+
+        //logika strony do wyświetlania informacji o fifie
+        public IActionResult InformationOfFifa()
+        {
             return View();
         }
 
-        //logika strony do wyświetlenia gier
-        public IActionResult GetAllGames()
+        //logika strony do wyświetlania informacji o gta
+        public IActionResult InformationOfGta()
         {
-            return View(this._gamesRepository.GetGames());
+            return View();
         }
 
-        //logika strony do wyświetlania informacji o grach
-        public IActionResult InformationOfGames()
+        //logika strony do wyświetlania informacji o gta
+        public IActionResult InformationOfMassEffect()
+        {
+            return View();
+        }
+
+        //logika strony do wyświetlania informacji o gta
+        public IActionResult InformationOfNba()
+        {
+            return View();
+        }
+
+        //logika strony do wyświetlania informacji o gta
+        public IActionResult InformationOfSims()
+        {
+            return View();
+        }
+
+        //logika strony do wyświetlania informacji o gta
+        public IActionResult InformationOfStarWars()
         {
             return View();
         }

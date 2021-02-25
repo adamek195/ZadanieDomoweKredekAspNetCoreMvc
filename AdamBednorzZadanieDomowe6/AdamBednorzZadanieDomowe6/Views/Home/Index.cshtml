@@ -1,32 +1,23 @@
-﻿@{
+﻿@model List<AdamBednorzZadanieDomowe6.Models.Entities.Game>
+
+@{
     ViewData["Title"] = "Wypożyczalnia gier komputerowych";
 }
 
-<div class="jumbotron" style="background-color:#dc7a34;">
-    <h1>Witaj w wypożyczalni gier komputerowych Optimus!</h1>
-    <h2>Menu:</h2>
-    <ul class="float-left">
-        <li>
-            <h3> @Html.ActionLink("Gry w wypożyczalni", "GetAllGames", "Home")</h3>
-        </li>
-        <li>
-            <h3> @Html.ActionLink("Informacje o grach", "InformationOfGames", "Home")</h3>
-        </li>
-        <li>
-            <h3> @Html.ActionLink("Cena za wypożyczenie", "GetListOfNames", "Home")</h3>
-        </li>
-        <li>
-            <h3> @Html.ActionLink("Wypożycz gre", "Index", "LendGame")</h3>
-        </li>
-        <li>
-            <h3> @Html.ActionLink("Prześlij opinię", "Index", "Opinion")</h3>
-        </li>
-        <li>
-            <h3> @Html.ActionLink("Kontakt", "Contact", "Home")</h3>
-        </li>
-    </ul>
-    <div class="float-left col-md-4">
-            <img src="~/images/optimus.jpg" alt="Optimus" />
+<h1>Nasze gry w wypożyczalni:</h1>
+
+<!--Zostana wyświetlone wszystkie kafelki z grami-->
+@foreach (var game in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4 float-left">
+        <div class="img-thumbnail">
+            <img src="@Url.Content(game.PhotoPath)" alt="@game.Name" />
+            <div class="figure-caption">
+                <h4>Gra: @game.Name</h4>
+                <h5>Producent: @game.Producer</h5>
+                <h5>@Html.ActionLink("Opis", "InformationOf"+game.Name, "Home")</h5>
+            </div>
+        </div>
     </div>
-    <div style="clear:both;"></div>
-</div>
+}
+<div style="clear:both;"></div>
