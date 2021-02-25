@@ -15,11 +15,12 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// <summary>
         /// Gry do wyświetlenia 
         /// </summary>
-        GamesRepository gamesRepository = new GamesRepository();
+        GamesRepository gamesRepository;
         List<GameViewModel>  allGames;
 
         public HomeController()
         {
+            gamesRepository = new GamesRepository();
             this.allGames = new List<GameViewModel>();
             allGames.Add(new GameViewModel("Fifa", "EA Sports", 50, "~/images/fifa.png"));
             allGames.Add(new GameViewModel("Gta", "Rockstar Games", 30, "~/images/gta.png"));
@@ -50,23 +51,13 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         //logika strony z opisami gier
         public IActionResult GetListOfNames()
         {
-            List<string> allNames = new List<string>();
-
-            foreach (var game in allGames)
-            {
-                allNames.Add(game.Name);
-            }
-
-
-            return View(allNames);
+            return View(this.gamesRepository.GetGamesNames());
         }
 
         //logika strony, ktora wybiera nam konkretny model gry
         public IActionResult GetGameByName(string selectedGame)
         {
-            var game = allGames.Where(a => a.Name.ToLower() == selectedGame.ToLower()).FirstOrDefault();
-
-            return View(game);
+            return View((this.gamesRepository.GetGameByName(selectedGame)));
         }
 
         // Strona do wypozyczania przed kliknieciem wypozyczenia

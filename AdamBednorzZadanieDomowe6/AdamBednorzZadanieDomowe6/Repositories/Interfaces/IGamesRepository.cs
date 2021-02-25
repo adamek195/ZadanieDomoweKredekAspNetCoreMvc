@@ -16,5 +16,17 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// </summary>
         /// <returns></returns>
         List<Game> GetGames();
+        /// <summary>
+        /// abstrkacyjna metoda do pobierania nazw gier
+        /// </summary>
+        /// <returns></returns>
+        List<String> GetGamesNames();
+        /// <summary>
+        /// abstrakcyjna metoda do pobrania konretnej gry na podstawie nazwy
+        /// </summary>
+        /// <param name="selectedGame"></param>
+        /// <returns></returns>
+        Game GetGameByName(string selectedGame);
+
     }
 }
