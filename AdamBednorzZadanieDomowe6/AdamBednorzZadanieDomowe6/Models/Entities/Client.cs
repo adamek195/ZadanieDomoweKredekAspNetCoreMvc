@@ -22,5 +22,6 @@ namespace AdamBednorzZadanieDomowe6.Models.Entities
         public int PhoneNumber { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Opinion> Opinions { get; set; }
     }
 }

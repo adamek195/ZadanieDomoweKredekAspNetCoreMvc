@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AdamBednorzZadanieDomowe6.Models;
+using AdamBednorzZadanieDomowe6.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdamBednorzZadanieDomowe6.Controllers

@@ -19,6 +19,8 @@ namespace AdamBednorzZadanieDomowe6.Models
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<Opinion> Opinions { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_connectionString);

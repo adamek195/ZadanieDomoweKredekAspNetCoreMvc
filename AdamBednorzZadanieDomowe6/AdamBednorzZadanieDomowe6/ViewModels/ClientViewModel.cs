@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AdamBednorzZadanieDomowe6.Models
+namespace AdamBednorzZadanieDomowe6.ViewModels
 {
     /// <summary>
     /// klasa opisujaca model klienta, ktory chce wypozyczyc gre
