@@ -8,28 +8,30 @@ using System.Threading.Tasks;
 namespace AdamBednorzZadanieDomowe6.Repositories
 {
     /// <summary>
-    /// Klasa definiująca metody związane z komunikacją z bazą danych dla tabeli Orders
+    /// Klasa definiująca metody związane z komunikacją z bazą danych dla tabeli Games
     /// </summary>
-    public class OrdersRepository: Repository, IOrdersRepository
+    public class OpinionsRepository : Repository, IOpinionsRepository
     {
-        public bool AddOrder(string firstName, string lastName, string password, string gameName)
+        /// <summary>
+        /// implementacja metody dodająca nową opinię do bazy
+        /// </summary>
+        public bool AddOpinion(string firstName, string lastName, string password, string message)
         {
             //szukamy klienta i gry
             Client client = DbContext.Clients.SingleOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
-            Game game = DbContext.Games.SingleOrDefault(g => g.Name == gameName);
-            //jesli nie ma takiego klienta lub gry w bazie zwroc falsz
-            if (client == null || game == null)
+            //jesli nie ma takiego klienta
+            if (client == null)
                 return false;
 
             //dodajemy nowe zamowienie
-            Order orderToAdd = new Order()
+            Opinion opinionToAdd = new Opinion()
             {
                 ClientId = client.Id,
-                GameId = game.Id
+                Message = message
             };
 
             //dodajemy zamowienie do bazy
-            DbContext.Orders.Add(orderToAdd);
+            DbContext.Opinions.Add(opinionToAdd);
 
             //zwracamy true jesli wszystko przebieglo pomyslnie
             return DbContext.SaveChanges() > 0;

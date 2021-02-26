@@ -35,6 +35,9 @@ namespace AdamBednorzZadanieDomowe6
             // wstrzykujemy zaleznosc pomiedzy ClientsRepository i IClientsRepository, wszedzie gdzie bedzie
             //ClientsRepository mozemy dodawac IClientsRepository
             services.AddTransient<IClientsRepository, ClientsRepository>();
+            // wstrzykujemy zaleznosc pomiedzy OpinionsRepository i IOpinionsRepository, wszedzie gdzie bedzie
+            //OpinionsRepository mozemy dodawac IOpinionsRepository
+            services.AddTransient<IOpinionsRepository, OpinionsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

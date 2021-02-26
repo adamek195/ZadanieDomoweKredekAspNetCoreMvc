@@ -16,8 +16,9 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         IOrdersRepository _ordersRepository;
 
         /// <summary>
-        /// kontruktor bezparametryczny
+        /// kontruktor parametryczny wykorzystujacy wstrzykiwanie zależnosci
         /// </summary>
+        /// <param name="ordersRepository"></param>
         public LendGameController(IOrdersRepository ordersRepository)
         {
             _ordersRepository = ordersRepository;
