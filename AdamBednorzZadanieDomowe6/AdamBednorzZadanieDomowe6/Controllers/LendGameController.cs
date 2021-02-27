@@ -4,10 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 using AdamBednorzZadanieDomowe6.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
+    /// <summary>
+    /// logika zakladki do wypozyczania gry
+    /// </summary>
     public class LendGameController : Controller
     {
         /// <summary>

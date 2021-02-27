@@ -11,6 +11,9 @@ using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
+    /// <summary>
+    /// logika głównej zakładki
+    /// </summary>
     public class HomeController : Controller
     {
         /// <summary>

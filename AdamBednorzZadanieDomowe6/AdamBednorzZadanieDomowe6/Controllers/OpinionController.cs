@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
+    /// <summary>
+    /// logika zakładki do przesyłania formularza
+    /// </summary>
     public class OpinionController : Controller
     {
         /// <summary>
