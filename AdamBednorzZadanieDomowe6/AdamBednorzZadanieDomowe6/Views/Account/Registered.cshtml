@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "LoginError";
+    ViewData["Title"] = "Registered";
 }
 
 <html>
@@ -10,13 +10,10 @@
 </head>
 <body>
     <br />
-    <!--Sekcja wyświetlająca nieudane logowanie-->
+    <!--Sekcja wyświetlająca informacje wypożyczenia-->
     <div class="jumbotron">
-        <div>
-            <h3>Niestety nie udało się zalogować :(</h3> <br />
-            <h3>Sprawdź czy dane są poprawne.</h3>
-            <h3>Nie masz konta? @Html.ActionLink("Zarejestruj się", "Register", "Account")</h3>
-        </div>
+        <h2>@ViewBag.userName :</h2> <br />
+        <h2>@ViewBag.userRegister</h2> <br />
     </div>
     <hr />
 </body>

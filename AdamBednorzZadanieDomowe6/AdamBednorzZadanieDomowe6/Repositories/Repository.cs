@@ -1,8 +1,5 @@
-﻿using AdamBednorzZadanieDomowe6.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
+using AdamBednorzZadanieDomowe6.Models;
 
 namespace AdamBednorzZadanieDomowe6.Repositories
 {

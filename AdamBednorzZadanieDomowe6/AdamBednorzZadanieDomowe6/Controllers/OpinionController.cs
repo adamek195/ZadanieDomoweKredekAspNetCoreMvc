@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
+﻿using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 using AdamBednorzZadanieDomowe6.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 

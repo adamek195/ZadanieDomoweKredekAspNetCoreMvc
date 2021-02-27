@@ -1,9 +1,7 @@
 ﻿using AdamBednorzZadanieDomowe6.Models.Entities;
 using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace AdamBednorzZadanieDomowe6.Repositories
 {
@@ -23,6 +21,29 @@ namespace AdamBednorzZadanieDomowe6.Repositories
         {
             Client client = DbContext.Clients.SingleOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
             return client != null;
+        }
+        public bool Register(string firstName, string lastName, string password, int phoneNumber)
+        {
+            //sprawdzamy czy taki klient juz istnieje
+            Client foundedClient = DbContext.Clients.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
+
+            //jesli istnieje zwroc falsz
+            if (foundedClient != null)
+                return false;
+
+            Client client = new Client()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Password = password,
+                PhoneNumber = phoneNumber
+            };
+
+            //dodajemy klienta do bazy
+            DbContext.Clients.Add(client);
+
+            //zapisujemy i zwracamy czy zapytanie przebiegło pomyslnie
+            return DbContext.SaveChanges() > 0;
         }
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdamBednorzZadanieDomowe6.Models;
-using AdamBednorzZadanieDomowe6.Repositories;
 using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 
 namespace AdamBednorzZadanieDomowe6.Controllers

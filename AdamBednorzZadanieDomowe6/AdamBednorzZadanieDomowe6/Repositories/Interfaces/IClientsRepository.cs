@@ -1,7 +1,6 @@
-﻿using System;
+﻿using AdamBednorzZadanieDomowe6.Models.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
 {
@@ -18,5 +17,13 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="password"></param>
         /// <returns></returns>
         bool SignIn(string firstName, string lastName, string password);
+        /// <summary>
+        /// abstrakcyjna metoda dodajaca nowego użytkownika do bazy
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        bool Register(string firstName, string lastName, string password, int phoneNumber);
     }
 }
