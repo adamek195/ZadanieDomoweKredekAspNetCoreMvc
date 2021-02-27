@@ -24,11 +24,6 @@ namespace AdamBednorzZadanieDomowe6.Controllers
             _opinionsRepository = opinionsRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         //strona wyswietlajaca się przed przeslaniem opini
         [HttpGet]
         public IActionResult SendOpinion()
@@ -43,9 +38,10 @@ namespace AdamBednorzZadanieDomowe6.Controllers
             string firstName = userOpinion.FirstName;
             string lastName = userOpinion.LastName;
             string password = userOpinion.Password;
+            string email = userOpinion.Email;
             string message = userOpinion.Message;
 
-            if (_opinionsRepository.AddOpinion(firstName, lastName, password, message))
+            if (_opinionsRepository.AddOpinion(firstName, lastName, password, email, message))
             {
                 ViewBag.UserName = firstName+ " " + lastName;
                 ViewBag.UserContact = "Dziękujemy za przesłanie opinii.";

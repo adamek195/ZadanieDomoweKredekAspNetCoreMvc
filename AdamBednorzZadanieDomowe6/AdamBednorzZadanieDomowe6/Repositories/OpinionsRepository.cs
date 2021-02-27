@@ -15,7 +15,7 @@ namespace AdamBednorzZadanieDomowe6.Repositories
         /// <summary>
         /// implementacja metody dodająca nową opinię do bazy
         /// </summary>
-        public bool AddOpinion(string firstName, string lastName, string password, string message)
+        public bool AddOpinion(string firstName, string lastName, string password, string email, string message)
         {
             //szukamy klienta i gry
             Client client = DbContext.Clients.SingleOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
@@ -27,6 +27,7 @@ namespace AdamBednorzZadanieDomowe6.Repositories
             Opinion opinionToAdd = new Opinion()
             {
                 ClientId = client.Id,
+                Email = email,
                 Message = message
             };
 

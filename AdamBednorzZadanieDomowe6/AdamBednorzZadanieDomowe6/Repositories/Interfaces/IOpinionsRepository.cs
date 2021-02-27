@@ -18,6 +18,6 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="password"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        bool AddOpinion(string firstName, string lastName, string password, string message);
+        bool AddOpinion(string firstName, string lastName, string password, string email, string message);
     }
 }

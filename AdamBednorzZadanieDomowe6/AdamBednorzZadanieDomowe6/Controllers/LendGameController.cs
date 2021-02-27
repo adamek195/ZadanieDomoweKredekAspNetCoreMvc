@@ -24,11 +24,6 @@ namespace AdamBednorzZadanieDomowe6.Controllers
             _ordersRepository = ordersRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         // Strona do wypozyczania przed kliknieciem wypozyczenia
         [HttpGet]
         public IActionResult LendGame()

@@ -18,7 +18,10 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// </summary>
         private IGamesRepository _gamesRepository;
 
-        
+        /// <summary>
+        /// konstruktor parametryczny wykorzystujacy wstrzykiwanie zaleznosci
+        /// </summary>
+        /// <param name="gamesRepository"></param>
         public HomeController(IGamesRepository gamesRepository)
         {
             _gamesRepository = gamesRepository;
