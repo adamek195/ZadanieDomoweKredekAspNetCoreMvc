@@ -25,5 +25,13 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="password"></param>
         /// <returns></returns>
         bool Register(string firstName, string lastName, string password, int phoneNumber);
+        /// <summary>
+        /// abstrakcyjna metoda usuwajaca uzytkownika z bazy
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        bool Delete(string firstName, string lastName, string password);
     }
 }

@@ -88,5 +88,39 @@ namespace AdamBednorzZadanieDomowe6.Controllers
             }
             return View("Registered");
         }
+
+        /// <summary>
+        /// logika zakladki do usuniecia
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// logika zakladki do usuwania
+        /// </summary>
+        /// <param name="clientData"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Delete(ClientViewModel clientData)
+        {
+            string firstName = clientData.FirstName;
+            string lastName = clientData.LastName;
+            string password = clientData.Password;
+            if (_clientsRepository.Delete(firstName, lastName, password))
+            {
+                ViewBag.UserName = firstName + " " + lastName;
+                ViewBag.UserDelete = "Udało się usunąć konto.";
+            }
+            else
+            {
+                ViewBag.UserName = firstName + " " + lastName;
+                ViewBag.UserDelete = "Nie udało się! Takiego użytkownika nie ma w naszym sklepie.";
+            }
+            return View("Deleted");
+        }
     }
 }

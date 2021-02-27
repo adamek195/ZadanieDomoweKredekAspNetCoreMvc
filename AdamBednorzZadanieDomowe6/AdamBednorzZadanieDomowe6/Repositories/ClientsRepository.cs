@@ -45,5 +45,25 @@ namespace AdamBednorzZadanieDomowe6.Repositories
             //zapisujemy i zwracamy czy zapytanie przebiegło pomyslnie
             return DbContext.SaveChanges() > 0;
         }
+
+        /// <summary>
+        /// implementacja metody usuwajacej użytkownika z bazy
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool Delete(string firstName, string lastName, string password)
+        {
+            //sprawdzamy czy istnieje taki użytkownik w bazie, ktorego chcemy usunac
+            Client clientToDelete = DbContext.Clients.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
+            if (clientToDelete == null)
+                return false;
+            //usuwamy pacjenta z bazy danych
+            DbContext.Clients.Remove(clientToDelete);
+
+            //zapisujemy i zwracamy czy zapytanie przebiegło pomyslnie
+            return DbContext.SaveChanges() > 0;
+        }
     }
 }
