@@ -1,0 +1,31 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Logged";
+}
+
+<html>
+<head>
+    <title>Login Error</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="@Url.Content("~/Scripts/Style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <br />
+    <!--Sekcja wyświetlająca nieudane logowanie-->
+    <div class="jumbotron">
+        <div>
+            <h3>Użytkownik: @ViewBag.userName udało Ci się zalogować</h3> <br />
+            <h3>Oto Twoja historia zamówień:</h3>
+            <ol>
+                @foreach (var gameName in Model)
+                {
+                    <h4> <li> @gameName<br /></li></h4>
+                }
+            </ol>
+            <h3>Chcesz wypożyczyć kolejną grę? @Html.ActionLink("Kliknij tutaj", "LendGame", "LendGame")</h3>
+        </div>
+    </div>
+    <hr />
+</body>
+</html>

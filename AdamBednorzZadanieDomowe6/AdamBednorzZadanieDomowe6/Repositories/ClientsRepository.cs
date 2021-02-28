@@ -65,5 +65,24 @@ namespace AdamBednorzZadanieDomowe6.Repositories
             //zapisujemy i zwracamy czy zapytanie przebiegło pomyslnie
             return DbContext.SaveChanges() > 0;
         }
+
+        /// <summary>
+        /// implementacja metody pobierajacej id klienta po danych
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public int GetIdByName(string firstName, string lastName, string password)
+        {
+            Client selectedClient = DbContext.Clients.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName && c.Password == password);
+
+            //jesli takiego klienta nie ma w bazie
+            if (selectedClient == null)
+                return 0;
+
+            return selectedClient.Id;
+
+        }
     }
 }

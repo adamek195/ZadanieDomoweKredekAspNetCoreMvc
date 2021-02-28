@@ -19,5 +19,11 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="gameName"></param>
         /// <returns></returns>
         bool AddOrder(string firstName, string lastName, string password, string gameName);
+        /// <summary>
+        /// Abstrakcyjna metoda do pobierania listy zamowionych gier przez konkretnego klienta
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
+        List<int> GetGamesIdByClientId(int clientId);
     }
 }

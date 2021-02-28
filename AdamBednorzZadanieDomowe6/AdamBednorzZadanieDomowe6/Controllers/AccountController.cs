@@ -1,6 +1,7 @@
 ﻿using AdamBednorzZadanieDomowe6.Repositories.Interfaces;
 using AdamBednorzZadanieDomowe6.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
@@ -13,14 +14,24 @@ namespace AdamBednorzZadanieDomowe6.Controllers
         /// kienci do obslugi 
         /// </summary>
         private IClientsRepository _clientsRepository;
+        /// <summary>
+        /// zlożone zamówienia
+        /// </summary>
+        private IOrdersRepository _ordersRepository;
+        /// <summary>
+        /// gry w wypożyczalni
+        /// </summary>
+        private IGamesRepository _gamesRepository;
 
         /// <summary>
         /// konstruktor parametryczny wykorzystujący wstrzykiwanie zależności
         /// </summary>
         /// <param name="clientsRepository"></param>
-        public AccountController(IClientsRepository clientsRepository)
+        public AccountController(IClientsRepository clientsRepository, IOrdersRepository ordersRepository, IGamesRepository gamesRepository)
         {
             _clientsRepository = clientsRepository;
+            _ordersRepository = ordersRepository;
+            _gamesRepository = gamesRepository;
         }
 
         /// <summary>
@@ -43,10 +54,21 @@ namespace AdamBednorzZadanieDomowe6.Controllers
             string firstName = clientData.FirstName;
             string lastName = clientData.LastName;
             string password = clientData.Password;
+            List<string> clientGames = new List<string>();
+            List<int> gamesIdByClientId = new List<int>();
+            int clientId;
 
             if(_clientsRepository.SignIn(firstName, lastName, password))
             {
-                return RedirectToAction("Index", "Home");
+                ViewBag.UserName = firstName + " " + lastName;
+                clientId = _clientsRepository.GetIdByName(firstName, lastName, password);
+                gamesIdByClientId = _ordersRepository.GetGamesIdByClientId(clientId);
+                foreach(var id in gamesIdByClientId)
+                {
+                    clientGames.Add(_gamesRepository.GetGameNameById(id));
+                }
+
+                return View("Logged", clientGames);
             }
             else
             {

@@ -25,6 +25,12 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="selectedGame"></param>
         /// <returns></returns>
         Game GetGameByName(string selectedGame);
+        /// <summary>
+        /// abstrkacyjna metoda pobierajaca nazwe gry na podstawie id
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <returns></returns>
+        string GetGameNameById(int gameId);
 
     }
 }

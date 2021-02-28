@@ -33,5 +33,14 @@ namespace AdamBednorzZadanieDomowe6.Repositories.Interfaces
         /// <param name="password"></param>
         /// <returns></returns>
         bool Delete(string firstName, string lastName, string password);
+
+        /// <summary>
+        /// abstrkacyjna metoda pobierajaca id klienta
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        int GetIdByName(string firstName, string lastName, string password);
     }
 }

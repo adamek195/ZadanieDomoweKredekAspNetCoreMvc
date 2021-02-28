@@ -77,9 +77,9 @@ body {
 /*ustawienia dla zegarka*/
 #clock {
     float: left;
-    font-size: 70px;
+    font-size: 20px;
     margin-top: 5px;
-    width: 600px;
+    width: 300px;
     text-align: center;
     padding: 10px;
 }

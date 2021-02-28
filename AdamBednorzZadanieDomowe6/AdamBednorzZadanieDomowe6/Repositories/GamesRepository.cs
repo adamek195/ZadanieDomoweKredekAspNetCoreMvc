@@ -45,5 +45,21 @@ namespace AdamBednorzZadanieDomowe6.Repositories
 
             return game;
         }
+
+        /// <summary>
+        /// implementacja metody zwracajaca nazwe gry na podstawie imienia
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <returns></returns>
+        public string GetGameNameById(int gameId)
+        {
+            Game gameName = DbContext.Games.SingleOrDefault(g => g.Id == gameId);
+
+            //jesli taka gra nie istnieje o podanym id
+            if (gameName == null)
+                return null;
+
+            return gameName.Name;
+        }
     }
 }
