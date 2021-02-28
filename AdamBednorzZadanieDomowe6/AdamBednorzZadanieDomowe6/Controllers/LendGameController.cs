@@ -41,7 +41,7 @@ namespace AdamBednorzZadanieDomowe6.Controllers
 
             if(_ordersRepository.AddOrder(firstName,lastName,password,gameName))
             {
-                ViewBag.ClientName = firstName + lastName;
+                ViewBag.ClientName = firstName+ " " + lastName;
                 ViewBag.ClientGame = gameName;
                 ViewBag.ClientOrder = "Wypożyczyłeś grę. Dziękujemy.";
             }
