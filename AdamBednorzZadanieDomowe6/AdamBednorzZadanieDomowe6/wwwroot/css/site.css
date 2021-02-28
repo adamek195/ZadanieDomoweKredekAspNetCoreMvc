@@ -73,3 +73,14 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/*ustawienia dla zegarka*/
+#clock {
+    float: left;
+    font-size: 200px;
+    margin-top: 5px;
+    width: 600px;
+    text-align: center;
+    padding: 10px;
+}
