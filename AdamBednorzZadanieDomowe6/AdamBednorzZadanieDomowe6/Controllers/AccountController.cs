@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace AdamBednorzZadanieDomowe6.Controllers
 {
     /// <summary>
-    /// logika zakładek zwiazanych z obsługa kont klienta
+    /// logika zakładek zwiazanych z obsługą kont klienta
     /// </summary>
     public class AccountController : Controller
     {
